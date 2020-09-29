@@ -1,6 +1,7 @@
 import * as Yup from 'yup';
 import jwt from 'jsonwebtoken';
 import User from '../models/User';
+import Notification from '../schemas/Notification';
 
 import authConfig from '../../config/auth';
 
@@ -32,6 +33,11 @@ class SessionController {
     if (user.first_auth === null) {
       await user.update({
         first_auth: new Date(),
+      });
+
+      await Notification.create({
+        content: `Olá ${user.name}, seja Bem-Vindo ao Sistema!!!`,
+        user: user.id,
       });
     }
 
