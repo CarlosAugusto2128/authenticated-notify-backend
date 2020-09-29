@@ -1,10 +1,11 @@
 import * as Yup from 'yup';
+import Mail from '../../lib/Mail';
 
 import User from '../models/User';
 
 class UserController {
   async store(req, res) {
-    const schema = Yup.object().spahe({
+    const schema = Yup.object().shape({
       name: Yup.string().required(),
       email: Yup.string()
         .email()
@@ -26,7 +27,18 @@ class UserController {
       return res.status(400).json({ error: 'User already exists' });
     }
 
-    const { id, name, email } = await User.create(req.body);
+    const user = await User.create(req.body);
+
+    const { id, name, email } = user;
+
+    await Mail.sendMail({
+      to: `${user.name} <${user.email}>`,
+      subject: 'Bem-Vindo',
+      template: 'welcome',
+      context: {
+        username: user.name,
+      },
+    });
 
     return res.json({
       id,

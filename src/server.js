@@ -1,3 +1,3 @@
 import app from './app';
 
-app.listen(process.env.APP_URL || 3333);
+app.listen(3333);
