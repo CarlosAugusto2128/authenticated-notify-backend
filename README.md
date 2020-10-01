@@ -1,5 +1,5 @@
 <h1>
-  <img src="https://ik.imagekit.io/ik54mxkwpj/logoImage_WEbsRKmmZ.png" />
+  <img src="https://ik.imagekit.io/ik54mxkwpj/logoAuthNotify_6zwto07QZ.png" />
 </h1>
 
 ## 📋 Sobre
