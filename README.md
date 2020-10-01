@@ -1,4 +1,4 @@
-<h1>
+<h1 align="center" >
   <img src="https://ik.imagekit.io/ik54mxkwpj/logoAuthNotify_6zwto07QZ.png" />
 </h1>
 
